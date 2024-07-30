@@ -11,16 +11,39 @@
             color: #2d3748;
             font-family: Arial, sans-serif;
             background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/diamond.png'); /* Background pattern */
+            scroll-behavior: smooth;
         }
         .container {
-            max-width: 900px;
             background: linear-gradient(to bottom right, #ffffff, #e2e8f0); /* Gradient background */
             border: 1px solid #d1d5db; /* Border */
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
+            padding: 20px;
+            margin-left: 260px; /* Adjusted for sidebar */
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100%;
+            background-color: #0e1336;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px 0;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background-color: #2d3748;
         }
         .header {
-            background-color: #181d40; /* Header background */
+            background-color: #0e1336; /* Header background */
             color: white;
             padding: 20px;
             border-radius: 10px 10px 0 0;
@@ -28,6 +51,8 @@
         }
         .section {
             border-bottom: 1px solid #e5e7eb; /* Section border */
+            padding-bottom: 20px;
+            margin-bottom: 20px;
         }
         .section:last-child {
             border-bottom: none;
@@ -40,26 +65,34 @@
         }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen">
-    <div class="container p-6 relative">
+<body class="flex">
+    <div class="sidebar">
+        <a href="#header">Header</a>
+        <a href="#summary">Summary</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#passions">Passions</a>
+    </div>
+    <div class="container relative">
         <div class="absolute top-4 right-4">
             <a href="CV-DhanyaPasuplan.pdf" download class="bg-custom-blue text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-800">Download CV</a>
         </div>
-        <div class="header text-center">
+        <div id="header" class="header text-center">
             <h1 class="text-4xl font-bold">Dhanya Pasuplan</h1>
             <p class="text-xl mt-2">HR Generalist | Employee Relations | Talent Acquisition</p>
             <p class="mt-4">Email: <a href="mailto:dpasupalan@gmail.com" class="text-gray-200 underline">dpasupalan@gmail.com</a></p>
             <p class="text-gray-200">Phone: +91-9961261794</p>
-            <p class="text-gray-200">Location: Mavelikkara, Kerala</p>
+            <p class="text-gray-200">Location: 9 Mavelikkara, Kerala</p>
             <p class="text-gray-200">LinkedIn: <a href="https://www.linkedin.com/in/dhanya-pasupalan-25077b134" class="underline" target="_blank">Dhanya Pasuplan</a></p>
         </div>
         
-        <div class="section mb-6 pb-4">
+        <div id="summary" class="section">
             <h2 class="text-2xl font-semibold text-custom-blue mb-4">Summary</h2>
             <p class="text-gray-700">Enthusiastic HR Generalist with 3+ years of experience in HR roles. Proven skills in employee relations, talent acquisition, and career guidance. Articulate negotiator skillful in supporting competitive company growth by sourcing top-quality applicants for critical roles. Organized planner with excellent team leadership and program management abilities.</p>
         </div>
         
-        <div class="section mb-6 pb-4">
+        <div id="experience" class="section">
             <h2 class="text-2xl font-semibold text-custom-blue mb-4">Experience</h2>
             <div class="space-y-4">
                 <div>
@@ -107,7 +140,7 @@
             </div>
         </div>
         
-        <div class="section mb-6 pb-4">
+        <div id="education" class="section">
             <h2 class="text-2xl font-semibold text-custom-blue mb-4">Education</h2>
             <div class="space-y-4">
                 <div>
@@ -121,7 +154,7 @@
             </div>
         </div>
         
-        <div class="section mb-6 pb-4">
+        <div id="skills" class="section">
             <h2 class="text-2xl font-semibold text-custom-blue mb-4">Skills</h2>
             <ul class="list-disc list-inside text-gray-700">
                 <li>Employee Relations</li>
@@ -133,7 +166,7 @@
             </ul>
         </div>
         
-        <div class="section mb-6 pb-4">
+        <div id="passions" class="section">
             <h2 class="text-2xl font-semibold text-custom-blue mb-4">Passions</h2>
             <ul class="list-disc list-inside text-gray-700">
                 <li>Employee Engagement - Passionate about creating an engaging and inclusive work environment for all employees.</li>
