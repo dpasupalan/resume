@@ -1,181 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Dhanya Pasupalan | HR Professional</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- SEO Meta Tags -->
+<meta name="description" content="Dhanya Pasupalan - Technical Recruiter with 4+ years of experience in IT & Healthcare recruitment, international hiring, and full-cycle talent acquisition.">
+<meta name="keywords" content="Technical Recruiter, IT Recruitment, Healthcare Recruitment, International Hiring, Boolean Search, LinkedIn Recruiter, HR Professional Kerala">
+<meta name="author" content="Dhanya Pasupalan">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Dhanya Pasupalan | Technical Recruiter</title>
 
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-        .hero {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 120px 0;
-        }
-        .section-title {
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
-        .card {
-            border: none;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            border-radius: 15px;
-        }
-        .skill-badge {
-            background-color: #e9f0ff;
-            color: #2a5298;
-            padding: 8px 14px;
-            margin: 5px;
-            border-radius: 20px;
-            display: inline-block;
-            font-size: 14px;
-        }
-        .footer {
-            background-color: #1e3c72;
-            color: white;
-            padding: 30px 0;
-        }
-        .btn-primary {
-            background-color: #2a5298;
-            border: none;
-        }
-        .btn-resume {
-            background-color: #ffffff;
-            color: #2a5298;
-            font-weight: 600;
-            border-radius: 30px;
-            padding: 10px 25px;
-        }
-        .btn-resume:hover {
-            background-color: #f1f1f1;
-        }
-    </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body { font-family: 'Poppins', sans-serif; transition: 0.4s; }
+.dark-mode { background-color: #121212; color: white; }
+
+.hero {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.section-title { font-weight: 700; margin-bottom: 40px; }
+
+.stat {
+    font-size: 42px;
+    font-weight: 700;
+    color: #2c5364;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.hire-section {
+    background: linear-gradient(135deg, #2c5364, #0f2027);
+    color: white;
+    padding: 70px 0;
+}
+
+.footer {
+    background-color: #0f2027;
+    color: white;
+    padding: 20px;
+}
+</style>
 </head>
+
 <body>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="#">Dhanya Pasupalan</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </div>
+<div class="container">
+<a class="navbar-brand fw-bold" href="#">Dhanya Pasupalan</a>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="navMenu">
+<ul class="navbar-nav">
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+<li class="nav-item">
+<button class="btn btn-sm btn-outline-light ms-3" onclick="toggleDarkMode()">🌙</button>
+</li>
+</ul>
+</div>
+</div>
 </nav>
 
 <!-- Hero Section -->
 <section class="hero text-center">
-    <div class="container">
-        <h1 class="display-4 fw-bold">HR Professional</h1>
-        <p class="lead mt-3">
-            Talent Acquisition | Employee Engagement | HR Operations
-        </p>
+<div class="container">
+<img src="profile.jpg" alt="Dhanya Profile" class="profile-img mb-4">
+<h1 class="fw-bold">Technical Recruiter</h1>
+<p class="lead">
+IT Recruitment | Healthcare Staffing | International Hiring | Full-Cycle Recruitment
+</p>
 
-        <!-- Download Resume Button -->
-        <div class="mt-4">
-            <a href="Dhanya_Pasupalan_Resume.pdf" download class="btn btn-resume me-3">
-                Download Resume
-            </a>
-            <a href="#contact" class="btn btn-light btn-lg">
-                Get In Touch
-            </a>
-        </div>
-    </div>
+<div class="mt-4">
+<a href="Dhanya_Pasupalan_Resume.pdf" download class="btn btn-light me-3">
+<i class="fa fa-download"></i> Download Resume
+</a>
+<a href="#contact" class="btn btn-outline-light">Hire Me</a>
+</div>
+</div>
 </section>
 
 <!-- About -->
-<section id="about" class="py-5 mt-5">
-    <div class="container text-center">
-        <h2 class="section-title">About Me</h2>
-        <p class="mx-auto" style="max-width: 800px;">
-            HR Professional with 4+ years of experience in Talent Acquisition,
-            Employee Relations, and HR Operations. Specialized in end-to-end recruitment,
-            onboarding coordination, engagement strategies, and recruitment metrics improvement.
-        </p>
-    </div>
+<section id="about" class="py-5 mt-5 text-center">
+<div class="container">
+<h2 class="section-title">Professional Summary</h2>
+<p class="mx-auto" style="max-width:850px;">
+Technical Recruiter with 4+ years of experience delivering full-cycle recruitment
+across IT and healthcare domains. Strong expertise in Boolean search, candidate
+engagement, stakeholder coordination, and international hiring processes.
+Proven ability to reduce time-to-fill, manage high-volume pipelines, and
+improve recruitment quality through data-driven strategies.
+</p>
+</div>
+</section>
+
+<!-- Impact Metrics -->
+<section class="py-5 bg-light text-center">
+<div class="container">
+<h2 class="section-title">Recruitment Impact</h2>
+<div class="row">
+
+<div class="col-md-3">
+<div class="stat" data-target="50">0</div>
+<p>International Placements</p>
+</div>
+
+<div class="col-md-3">
+<div class="stat" data-target="35">0</div>
+<p>IT Positions Closed</p>
+</div>
+
+<div class="col-md-3">
+<div class="stat" data-target="25">0</div>
+<p>Reduced Time-to-Fill (%)</p>
+</div>
+
+<div class="col-md-3">
+<div class="stat" data-target="90">0</div>
+<p>Offer Acceptance Rate (%)</p>
+</div>
+
+</div>
+</div>
 </section>
 
 <!-- Experience -->
-<section id="experience" class="py-5 bg-light">
-    <div class="container">
-        <h2 class="text-center section-title">Professional Experience</h2>
+<section id="experience" class="py-5">
+<div class="container">
+<h2 class="text-center section-title">Professional Experience</h2>
 
-        <div class="card p-4 mb-4">
-            <h5 class="fw-bold">HR Generalist – B-GHUD Academy</h5>
-            <small class="text-muted">Jan 2024 – Present | Kerala</small>
-            <ul class="mt-3">
-                <li>Improved placement success rate by 40%.</li>
-                <li>Managed candidate documentation and onboarding.</li>
-                <li>Coordinated with international recruitment partners.</li>
-            </ul>
-        </div>
+<div class="card p-4 mb-4">
+<h5 class="fw-bold">HR Recruiter – B-GHUD</h5>
+<small class="text-muted">Jan 2024 – Present | Kerala</small>
+<ul class="mt-3">
+<li>Placed 50+ nursing professionals across UK, New Zealand & Ireland.</li>
+<li>Built partnerships with 15+ international healthcare agencies.</li>
+<li>Reduced compliance processing time by 30%.</li>
+<li>Assessed 200+ candidates aligning skills with global roles.</li>
+</ul>
+</div>
 
-        <div class="card p-4 mb-4">
-            <h5 class="fw-bold">Recruitment Executive – Connectors HR</h5>
-            <small class="text-muted">Jan 2021 – Apr 2023 | Bengaluru</small>
-            <ul class="mt-3">
-                <li>Handled end-to-end recruitment lifecycle.</li>
-                <li>Reduced time-to-fill by 30%.</li>
-                <li>Maintained MIS recruitment trackers.</li>
-            </ul>
-        </div>
+<div class="card p-4 mb-4">
+<h5 class="fw-bold">Technical Recruiter – CONNECTORSHR Consulting</h5>
+<small class="text-muted">Jan 2021 – Apr 2023 | Bengaluru</small>
+<ul class="mt-3">
+<li>Closed 35+ IT positions across software & infrastructure domains.</li>
+<li>Built pipeline of 500+ IT professionals.</li>
+<li>Reduced time-to-fill by 25% using Boolean sourcing.</li>
+<li>Maintained 90% offer acceptance rate.</li>
+</ul>
+</div>
 
-    </div>
+<div class="card p-4">
+<h5 class="fw-bold">HR Associate – White Oval Business Solutions</h5>
+<small class="text-muted">Oct 2018 – Dec 2020 | Kerala</small>
+<ul class="mt-3">
+<li>Contributed to 20% revenue growth through client talent support.</li>
+<li>Managed client portfolios and recruitment coordination.</li>
+</ul>
+</div>
+
+</div>
 </section>
 
-<!-- Skills -->
-<section id="skills" class="py-5">
-    <div class="container text-center">
-        <h2 class="section-title">Core Skills</h2>
-        <div>
-            <span class="skill-badge">Talent Acquisition</span>
-            <span class="skill-badge">Employee Engagement</span>
-            <span class="skill-badge">HR Operations</span>
-            <span class="skill-badge">Onboarding</span>
-            <span class="skill-badge">MS Excel</span>
-            <span class="skill-badge">Google Sheets</span>
-            <span class="skill-badge">HRMS</span>
-            <span class="skill-badge">ATS Platforms</span>
-        </div>
-    </div>
+<!-- Hire Me Section -->
+<section class="hire-section text-center">
+<div class="container">
+<h2 class="fw-bold">Looking for a High-Impact Recruiter?</h2>
+<p class="mt-3">
+I specialize in technical sourcing, stakeholder management, and international hiring.
+Let’s build high-performing teams together.
+</p>
+<a href="mailto:dpasupalan@gmail.com" class="btn btn-light mt-3">
+Let's Connect
+</a>
+</div>
 </section>
 
 <!-- Contact -->
-<section id="contact" class="py-5 bg-light">
-    <div class="container text-center">
-        <h2 class="section-title">Contact</h2>
-        <p>Email: dpasupalan@gmail.com</p>
-        <p>Phone: +91-9961261794</p>
-        <a href="https://www.linkedin.com/in/dhanya-pasupalan-25077b134" target="_blank" class="btn btn-primary mt-3">
-            View LinkedIn
-        </a>
-    </div>
+<section id="contact" class="py-5 text-center">
+<div class="container">
+<h2 class="section-title">Contact</h2>
+<p>Email: dpasupalan@gmail.com</p>
+<p>Phone: +91 9961261794</p>
+<a href="https://www.linkedin.com/in/dhanya-pasupalan-25077b134" target="_blank" class="btn btn-primary">
+LinkedIn Profile
+</a>
+</div>
 </section>
 
-<!-- Footer -->
 <div class="footer text-center">
-    <div class="container">
-        <p class="mb-0">© 2026 Dhanya Pasupalan | HR Portfolio</p>
-    </div>
+© 2026 Dhanya Pasupalan | Technical Recruiter Portfolio
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function toggleDarkMode() {
+document.body.classList.toggle("dark-mode");
+}
+
+const counters = document.querySelectorAll('.stat');
+counters.forEach(counter => {
+counter.innerText = '0';
+const updateCounter = () => {
+const target = +counter.getAttribute('data-target');
+const count = +counter.innerText;
+const increment = target / 100;
+if (count < target) {
+counter.innerText = `${Math.ceil(count + increment)}`;
+setTimeout(updateCounter, 20);
+} else {
+counter.innerText = target;
+}
+};
+updateCounter();
+});
+</script>
+
 </body>
 </html>
