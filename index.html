@@ -3,244 +3,939 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="Dhanya Pasupalan - Technical Recruiter with 4+ years of experience in IT & Healthcare recruitment, international hiring, and full-cycle talent acquisition.">
-<meta name="keywords" content="Technical Recruiter, IT Recruitment, Healthcare Recruitment, International Hiring, Boolean Search, LinkedIn Recruiter, HR Professional Kerala">
-<meta name="author" content="Dhanya Pasupalan">
-
-<title>Dhanya Pasupalan | Technical Recruiter</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<title>Dhanya Pasupalan — Technical Recruiter</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <style>
-body { font-family: 'Poppins', sans-serif; transition: 0.4s; }
-.dark-mode { background-color: #121212; color: white; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-.hero {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: white;
-    padding: 120px 0;
+  :root {
+    --cream: #F5F0E8;
+    --ink: #1A1612;
+    --terracotta: #C4623A;
+    --terracotta-light: #E8845E;
+    --gold: #C9A84C;
+    --sage: #7A9E7E;
+    --warm-gray: #8A857D;
+    --card-bg: #FDFAF5;
+    --border: rgba(26,22,18,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 12px; height: 12px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--terracotta);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.4s cubic-bezier(.165,.84,.44,1), opacity 0.3s ease;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+  }
+  body:hover .cursor { opacity: 1; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 4rem;
+    mix-blend-mode: multiply;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     position: relative;
     overflow: hidden;
-}
+  }
 
-.profile-img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8rem 4rem 5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1.5px;
+    background: var(--terracotta);
+  }
+
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    line-height: 1.0;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.35s forwards;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--warm-gray);
+    max-width: 420px;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 1rem; align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.65s forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--terracotta);
+    color: white;
+    padding: 0.9rem 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--ink); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    padding: 0.9rem 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+  .btn-secondary:hover { background: var(--ink); color: var(--cream); transform: translateY(-1px); }
+
+  /* HERO RIGHT - visual panel */
+  .hero-right {
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 1s 0.3s forwards;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.015) 40px,
+      rgba(255,255,255,0.015) 41px
+    );
+  }
+
+  .hero-photo {
+    width: 100%; height: 100%;
     object-fit: cover;
-    border: 5px solid white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
+    object-position: top center;
+    opacity: 0.75;
+    mix-blend-mode: luminosity;
+    display: block;
+  }
 
-.section-title { font-weight: 700; margin-bottom: 40px; }
+  .hero-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem;
+    color: rgba(255,255,255,0.2);
+  }
 
-.stat {
-    font-size: 42px;
+  .hero-photo-placeholder svg { opacity: 0.3; }
+
+  /* Floating stat chips on hero */
+  .hero-stat-chips {
+    position: absolute;
+    bottom: 3rem; left: 3rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+  }
+
+  .stat-chip {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 4px;
+    padding: 0.75rem 1.25rem;
+    display: flex; align-items: baseline; gap: 0.5rem;
+  }
+
+  .stat-chip-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: white;
+    line-height: 1;
+  }
+
+  .stat-chip-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* MARQUEE */
+  .marquee-bar {
+    background: var(--terracotta);
+    padding: 0.85rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+  }
+  .marquee-track span {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: white;
+    padding: 0 2.5rem;
+    opacity: 0.9;
+  }
+  .marquee-track span::after {
+    content: '✦';
+    padding-left: 2.5rem;
+    opacity: 0.5;
+  }
+
+  /* STATS */
+  .stats-section {
+    padding: 6rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat-item {
+    padding: 2.5rem 3rem;
+    border-right: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-item:last-child { border-right: none; }
+
+  .stat-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 3rem; right: 3rem;
+    height: 2px;
+    background: var(--terracotta);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .stat-item:hover::after { transform: scaleX(1); }
+
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-number sup {
+    font-size: 1.5rem;
+    color: var(--terracotta);
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+
+  /* ABOUT */
+  .about-section {
+    padding: 7rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 20px; height: 1.5px;
+    background: var(--terracotta);
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .section-title em { font-style: italic; color: var(--terracotta); }
+
+  .about-body p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--warm-gray);
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-body p:last-child { margin-bottom: 0; }
+
+  .specialisms {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin-top: 2rem;
+  }
+
+  .specialism-tag {
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
+    color: var(--ink);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .specialism-tag:hover {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+  }
+
+  /* EXPERIENCE */
+  .experience-section {
+    padding: 7rem 4rem;
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .exp-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 5rem;
+  }
+
+  .exp-header .section-label { color: var(--gold); }
+  .exp-header .section-label::before { background: var(--gold); }
+  .exp-header .section-title { color: var(--cream); }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .exp-card {
+    background: var(--ink);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .exp-card:hover { background: #241E19; }
+
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--terracotta);
+    transition: height 0.4s ease;
+  }
+  .exp-card:hover::before { height: 100%; }
+
+  .exp-period {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-company {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: white;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+  }
+
+  .exp-role {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    letter-spacing: 0.04em;
+  }
+
+  .exp-achievements {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.75rem;
+  }
+
+  .exp-achievements li {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    line-height: 1.6;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .exp-achievements li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--terracotta);
+    font-size: 0.8rem;
+  }
+
+  /* CTA STRIP */
+  .cta-strip {
+    background: var(--terracotta);
+    padding: 6rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .cta-strip-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: white;
+    line-height: 1.15;
+  }
+
+  .cta-strip-title em { font-style: italic; opacity: 0.7; }
+
+  .btn-white {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: white;
+    color: var(--terracotta);
+    padding: 1rem 2.5rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: #2c5364;
-}
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-white:hover { background: var(--ink); color: white; transform: scale(1.02); }
 
-.card {
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
+  /* CONTACT */
+  .contact-section {
+    padding: 7rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    border-top: 1px solid var(--border);
+  }
 
-.hire-section {
-    background: linear-gradient(135deg, #2c5364, #0f2027);
-    color: white;
-    padding: 70px 0;
-}
+  .contact-info {
+    display: flex; flex-direction: column; gap: 2rem;
+    margin-top: 2rem;
+  }
 
-.footer {
-    background-color: #0f2027;
-    color: white;
-    padding: 20px;
-}
+  .contact-item {
+    display: flex; align-items: center; gap: 1.25rem;
+  }
+
+  .contact-icon {
+    width: 44px; height: 44px;
+    background: var(--ink);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--cream);
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .contact-item-text {
+    display: flex; flex-direction: column; gap: 0.15rem;
+  }
+
+  .contact-item-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+
+  .contact-item-value {
+    font-size: 0.95rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .contact-item-value:hover { color: var(--terracotta); }
+
+  .contact-right {
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .contact-right p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--warm-gray);
+    font-weight: 300;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 2rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  footer span {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+  }
+
+  footer a {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--terracotta); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Counter animation */
+  .count-up { display: inline; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 50vh; }
+    .hero-left { padding: 7rem 2rem 3rem; }
+    .stats-section { grid-template-columns: 1fr 1fr; padding: 3rem 2rem; }
+    .about-section { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+    .experience-section { padding: 5rem 2rem; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .cta-strip { grid-template-columns: 1fr; padding: 4rem 2rem; }
+    .contact-section { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+    footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+    .stat-item { padding: 2rem; border-right: none; border-bottom: 1px solid var(--border); }
+  }
 </style>
 </head>
-
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-<div class="container">
-<a class="navbar-brand fw-bold" href="#">Dhanya Pasupalan</a>
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse justify-content-end" id="navMenu">
-<ul class="navbar-nav">
-<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-<li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-<li class="nav-item">
-<button class="btn btn-sm btn-outline-light ms-3" onclick="toggleDarkMode()">🌙</button>
-</li>
-</ul>
-</div>
-</div>
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">D. Pasupalan</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero text-center">
-<div class="container">
-<img src="profile.jpg" alt="Dhanya Profile" class="profile-img mb-4">
-<h1 class="fw-bold">Technical Recruiter</h1>
-<p class="lead">
-IT Recruitment | Healthcare Staffing | International Hiring | Full-Cycle Recruitment
-</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Open to opportunities</div>
+    <h1 class="hero-name">
+      Dhanya<br><em>Pasupalan</em>
+    </h1>
+    <p class="hero-desc">
+      Technical Recruiter with 4+ years delivering full-cycle hiring across IT and healthcare — from Bengaluru to the British Isles.
+    </p>
+    <div class="hero-ctas">
+      <a href="Dhanya_Pasupalan_Resume.pdf" class="btn-primary" download>
+        ↓ Download CV
+      </a>
+      <a href="#contact" class="btn-secondary">Let's Talk</a>
+    </div>
+  </div>
 
-<div class="mt-4">
-<a href="Dhanya_Pasupalan_Resume.pdf" download class="btn btn-light me-3">
-<i class="fa fa-download"></i> Download Resume
-</a>
-<a href="#contact" class="btn btn-outline-light">Hire Me</a>
-</div>
-</div>
+  <div class="hero-right">
+    <!-- If profile.jpg exists alongside the HTML, it will load; otherwise shows placeholder -->
+    <img src="profile.jpg" class="hero-photo" alt="Dhanya Pasupalan"
+      onerror="this.style.display='none'; document.getElementById('photo-placeholder').style.display='flex'">
+    <div class="hero-photo-placeholder" id="photo-placeholder" style="display:none">
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="30" r="18" stroke="white" stroke-width="1.5"/>
+        <path d="M10 75c0-16.569 13.431-30 30-30s30 13.431 30 30" stroke="white" stroke-width="1.5"/>
+      </svg>
+      <span style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Profile Photo</span>
+    </div>
+    <div class="hero-stat-chips">
+      <div class="stat-chip">
+        <span class="stat-chip-num">50<span style="font-size:1rem;color:var(--terracotta)">+</span></span>
+        <span class="stat-chip-label">International placements</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip-num">90<span style="font-size:1rem;color:var(--terracotta)">%</span></span>
+        <span class="stat-chip-label">Offer acceptance rate</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- About -->
-<section id="about" class="py-5 mt-5 text-center">
-<div class="container">
-<h2 class="section-title">Professional Summary</h2>
-<p class="mx-auto" style="max-width:850px;">
-Technical Recruiter with 4+ years of experience delivering full-cycle recruitment
-across IT and healthcare domains. Strong expertise in Boolean search, candidate
-engagement, stakeholder coordination, and international hiring processes.
-Proven ability to reduce time-to-fill, manage high-volume pipelines, and
-improve recruitment quality through data-driven strategies.
-</p>
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>Boolean Search</span>
+    <span>Full-Cycle Recruitment</span>
+    <span>International Hiring</span>
+    <span>IT Staffing</span>
+    <span>Healthcare Staffing</span>
+    <span>Stakeholder Management</span>
+    <span>Talent Pipeline</span>
+    <span>Candidate Engagement</span>
+    <span>Boolean Search</span>
+    <span>Full-Cycle Recruitment</span>
+    <span>International Hiring</span>
+    <span>IT Staffing</span>
+    <span>Healthcare Staffing</span>
+    <span>Stakeholder Management</span>
+    <span>Talent Pipeline</span>
+    <span>Candidate Engagement</span>
+  </div>
 </div>
+
+<!-- STATS -->
+<section class="stats-section" id="stats">
+  <div class="stat-item reveal">
+    <div class="stat-number"><span class="count-up" data-target="50">0</span><sup>+</sup></div>
+    <div class="stat-label">International Placements</div>
+  </div>
+  <div class="stat-item reveal" style="transition-delay:0.1s">
+    <div class="stat-number"><span class="count-up" data-target="35">0</span><sup>+</sup></div>
+    <div class="stat-label">IT Positions Closed</div>
+  </div>
+  <div class="stat-item reveal" style="transition-delay:0.2s">
+    <div class="stat-number"><span class="count-up" data-target="25">0</span><sup>%</sup></div>
+    <div class="stat-label">Reduced Time-to-Fill</div>
+  </div>
+  <div class="stat-item reveal" style="transition-delay:0.3s">
+    <div class="stat-number"><span class="count-up" data-target="90">0</span><sup>%</sup></div>
+    <div class="stat-label">Offer Acceptance Rate</div>
+  </div>
 </section>
 
-<!-- Impact Metrics -->
-<section class="py-5 bg-light text-center">
-<div class="container">
-<h2 class="section-title">Recruitment Impact</h2>
-<div class="row">
-
-<div class="col-md-3">
-<div class="stat" data-target="50">0</div>
-<p>International Placements</p>
-</div>
-
-<div class="col-md-3">
-<div class="stat" data-target="35">0</div>
-<p>IT Positions Closed</p>
-</div>
-
-<div class="col-md-3">
-<div class="stat" data-target="25">0</div>
-<p>Reduced Time-to-Fill (%)</p>
-</div>
-
-<div class="col-md-3">
-<div class="stat" data-target="90">0</div>
-<p>Offer Acceptance Rate (%)</p>
-</div>
-
-</div>
-</div>
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="reveal">
+    <div class="section-label">About</div>
+    <h2 class="section-title">Connecting <em>talent</em> to opportunity</h2>
+  </div>
+  <div class="about-body reveal" style="transition-delay:0.15s">
+    <p>
+      I'm a Technical Recruiter with over four years of full-cycle experience spanning IT and healthcare — two industries where the right hire genuinely changes outcomes for organisations and patients alike.
+    </p>
+    <p>
+      My approach is data-driven and human-first: I use Boolean search and pipeline analytics to move fast, while investing real time in understanding what candidates and hiring managers actually need.
+    </p>
+    <p>
+      From closing software engineering roles in Bengaluru to placing nursing professionals across the UK, New Zealand, and Ireland — I bring the cross-cultural fluency and compliance knowledge that international hiring demands.
+    </p>
+    <div class="specialisms">
+      <span class="specialism-tag">Boolean Search</span>
+      <span class="specialism-tag">Full-Cycle Recruitment</span>
+      <span class="specialism-tag">International Hiring</span>
+      <span class="specialism-tag">Healthcare Staffing</span>
+      <span class="specialism-tag">IT Recruitment</span>
+      <span class="specialism-tag">Stakeholder Management</span>
+      <span class="specialism-tag">Candidate Engagement</span>
+      <span class="specialism-tag">Compliance Processing</span>
+    </div>
+  </div>
 </section>
 
-<!-- Experience -->
-<section id="experience" class="py-5">
-<div class="container">
-<h2 class="text-center section-title">Professional Experience</h2>
+<!-- EXPERIENCE -->
+<section class="experience-section" id="experience">
+  <div class="exp-header">
+    <div>
+      <div class="section-label">Experience</div>
+      <h2 class="section-title">Where I've <em>delivered</em></h2>
+    </div>
+  </div>
 
-<div class="card p-4 mb-4">
-<h5 class="fw-bold">HR Recruiter – B-GHUD</h5>
-<small class="text-muted">Jan 2024 – Present | Kerala</small>
-<ul class="mt-3">
-<li>Placed 50+ nursing professionals across UK, New Zealand & Ireland.</li>
-<li>Built partnerships with 15+ international healthcare agencies.</li>
-<li>Reduced compliance processing time by 30%.</li>
-<li>Assessed 200+ candidates aligning skills with global roles.</li>
-</ul>
-</div>
+  <div class="exp-grid">
+    <div class="exp-card reveal">
+      <div class="exp-period">Jan 2024 – Present · Kerala</div>
+      <div class="exp-company">B-GHUD</div>
+      <div class="exp-role">HR Recruiter — International Healthcare</div>
+      <ul class="exp-achievements">
+        <li>Placed 50+ nursing professionals across UK, New Zealand & Ireland</li>
+        <li>Built partnerships with 15+ international healthcare agencies</li>
+        <li>Reduced compliance processing time by 30%</li>
+        <li>Assessed 200+ candidates aligning skills with global roles</li>
+      </ul>
+    </div>
 
-<div class="card p-4 mb-4">
-<h5 class="fw-bold">Technical Recruiter – CONNECTORSHR Consulting</h5>
-<small class="text-muted">Jan 2021 – Apr 2023 | Bengaluru</small>
-<ul class="mt-3">
-<li>Closed 35+ IT positions across software & infrastructure domains.</li>
-<li>Built pipeline of 500+ IT professionals.</li>
-<li>Reduced time-to-fill by 25% using Boolean sourcing.</li>
-<li>Maintained 90% offer acceptance rate.</li>
-</ul>
-</div>
+    <div class="exp-card reveal" style="transition-delay:0.1s">
+      <div class="exp-period">Jan 2021 – Apr 2023 · Bengaluru</div>
+      <div class="exp-company">ConnectorsHR</div>
+      <div class="exp-role">Technical Recruiter — IT Staffing</div>
+      <ul class="exp-achievements">
+        <li>Closed 35+ IT positions across software & infrastructure domains</li>
+        <li>Built pipeline of 500+ qualified IT professionals</li>
+        <li>Reduced time-to-fill by 25% using Boolean sourcing strategies</li>
+        <li>Maintained 90% offer acceptance rate</li>
+      </ul>
+    </div>
 
-<div class="card p-4">
-<h5 class="fw-bold">HR Associate – White Oval Business Solutions</h5>
-<small class="text-muted">Oct 2018 – Dec 2020 | Kerala</small>
-<ul class="mt-3">
-<li>Contributed to 20% revenue growth through client talent support.</li>
-<li>Managed client portfolios and recruitment coordination.</li>
-</ul>
-</div>
+    <div class="exp-card reveal" style="transition-delay:0.2s">
+      <div class="exp-period">Oct 2018 – Dec 2020 · Kerala</div>
+      <div class="exp-company">White Oval</div>
+      <div class="exp-role">HR Associate — Business Solutions</div>
+      <ul class="exp-achievements">
+        <li>Contributed to 20% revenue growth through strategic talent support</li>
+        <li>Managed client portfolios and end-to-end recruitment coordination</li>
+      </ul>
+    </div>
 
-</div>
+    <div class="exp-card reveal" style="transition-delay:0.3s; display:flex; flex-direction:column; justify-content:center; align-items:flex-start;">
+      <div style="font-family:'DM Serif Display',serif; font-size:1.1rem; color:rgba(255,255,255,0.3); line-height:1.6; font-style:italic; margin-bottom:2rem;">
+        "A recruiter who understands<br>both the human and the role."
+      </div>
+      <a href="https://www.linkedin.com/in/dhanya-pasupalan-25077b134" target="_blank" class="btn-secondary" style="border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);">
+        View LinkedIn →
+      </a>
+    </div>
+  </div>
 </section>
 
-<!-- Hire Me Section -->
-<section class="hire-section text-center">
-<div class="container">
-<h2 class="fw-bold">Looking for a High-Impact Recruiter?</h2>
-<p class="mt-3">
-I specialize in technical sourcing, stakeholder management, and international hiring.
-Let’s build high-performing teams together.
-</p>
-<a href="mailto:dpasupalan@gmail.com" class="btn btn-light mt-3">
-Let's Connect
-</a>
-</div>
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <h2 class="cta-strip-title reveal">
+    Looking for a recruiter who<br><em>actually delivers?</em>
+  </h2>
+  <a href="mailto:dpasupalan@gmail.com" class="btn-white reveal" style="transition-delay:0.15s">
+    Get in Touch →
+  </a>
 </section>
 
-<!-- Contact -->
-<section id="contact" class="py-5 text-center">
-<div class="container">
-<h2 class="section-title">Contact</h2>
-<p>Email: dpasupalan@gmail.com</p>
-<p>Phone: +91 9961261794</p>
-<a href="https://www.linkedin.com/in/dhanya-pasupalan-25077b134" target="_blank" class="btn btn-primary">
-LinkedIn Profile
-</a>
-</div>
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div>
+    <div class="section-label reveal">Contact</div>
+    <h2 class="section-title reveal" style="transition-delay:0.1s">Let's build <em>great</em><br>teams together</h2>
+    <div class="contact-info reveal" style="transition-delay:0.2s">
+      <div class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div class="contact-item-text">
+          <span class="contact-item-label">Email</span>
+          <a href="mailto:dpasupalan@gmail.com" class="contact-item-value">dpasupalan@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">☎</div>
+        <div class="contact-item-text">
+          <span class="contact-item-label">Phone</span>
+          <a href="tel:+919961261794" class="contact-item-value">+91 99612 61794</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">in</div>
+        <div class="contact-item-text">
+          <span class="contact-item-label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/dhanya-pasupalan-25077b134" target="_blank" class="contact-item-value">dhanya-pasupalan</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-right reveal" style="transition-delay:0.25s">
+    <div class="section-label">Availability</div>
+    <h3 style="font-family:'DM Serif Display',serif; font-size:1.8rem; line-height:1.2; margin-top:0.5rem;">
+      Open to roles in<br>technical & healthcare<br>recruitment
+    </h3>
+    <p>Whether you're scaling an engineering team, building a healthcare workforce, or need a recruiter who bridges both worlds — I'd love to explore how I can help.</p>
+    <a href="Dhanya_Pasupalan_Resume.pdf" download class="btn-primary">↓ Download Full Resume</a>
+  </div>
 </section>
 
-<div class="footer text-center">
-© 2026 Dhanya Pasupalan | Technical Recruiter Portfolio
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Dhanya Pasupalan</span>
+  <a href="mailto:dpasupalan@gmail.com">dpasupalan@gmail.com</a>
+</footer>
 
 <script>
-function toggleDarkMode() {
-document.body.classList.toggle("dark-mode");
-}
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animateCursor() {
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
 
-const counters = document.querySelectorAll('.stat');
-counters.forEach(counter => {
-counter.innerText = '0';
-const updateCounter = () => {
-const target = +counter.getAttribute('data-target');
-const count = +counter.innerText;
-const increment = target / 100;
-if (count < target) {
-counter.innerText = `${Math.ceil(count + increment)}`;
-setTimeout(updateCounter, 20);
-} else {
-counter.innerText = target;
-}
-};
-updateCounter();
-});
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.opacity = '0'; });
+    el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.opacity = '0.5'; });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Count-up
+  function countUp(el) {
+    const target = +el.dataset.target;
+    const duration = 1800;
+    const start = performance.now();
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+
+  const statsObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.count-up').forEach(countUp);
+        statsObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  statsObserver.observe(document.getElementById('stats'));
 </script>
-
 </body>
 </html>
